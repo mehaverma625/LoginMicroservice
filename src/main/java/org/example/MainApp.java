@@ -5,7 +5,6 @@ import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.net.URI;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainApp {
@@ -17,53 +16,19 @@ public class MainApp {
 
     // Starts Grizzly HTTP server
     public static HttpServer startServer() {
-
         // scan packages
         final ResourceConfig config = new ResourceConfig();
-         config.packages(true, "org.example");
-//        config.packages(true, "com.mkyong");
-        config.register(Login.class);
-//        config.register(MyResource.class);
-
-        // enable auto scan @Contract and @Service
-//        config.register(AutoScanFeature.class);
+        config.packages(true, "org.example");
+//        config.register(Login.class);
 
         LOGGER.info("Starting Server........");
-
         final HttpServer httpServer =
                 GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), config);
 
         return httpServer;
-
     }
 
     public static void main(String[] args) {
-
-        try {
-
-            final HttpServer httpServer = startServer();
-
-            // add jvm shutdown hook
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                try {
-                    System.out.println("Shutting down the application...");
-
-                    httpServer.shutdownNow();
-
-                    System.out.println("Done, exit.");
-                } catch (Exception e) {
-                    Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, e);
-                }
-            }));
-
-            System.out.println(String.format("Application started.%nStop the application using CTRL+C"));
-
-            // block and wait shut down signal, like CTRL+C
-            Thread.currentThread().join();
-
-        } catch (InterruptedException ex) {
-            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        startServer();
     }
 }

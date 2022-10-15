@@ -8,11 +8,6 @@
     <artifactId>LoginMicroservice</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.example</groupId>-->
-<!--            <artifactId>LoginMicroservice</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
@@ -33,18 +28,10 @@
             <artifactId>jersey-hk2</artifactId>
             <version>2.28</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jersey.media</groupId>-->
-<!--            <artifactId>jersey-media-json-jackson</artifactId>-->
-<!--            <version>3.1.0-M8</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
-            <version>2.22.1</version>
-<!--            <version>2.23.2</version>-->
+            <version>2.23.2</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
